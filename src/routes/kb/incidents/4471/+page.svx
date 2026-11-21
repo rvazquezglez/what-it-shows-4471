@@ -4,7 +4,7 @@ title: '#4471 · dates wrong in eu locales: three problems, not one'
 owner: support desk
 status: split
 reviewed: 2026-11-20
-signature: rvazquezglez
+signature: 'v1.eyJzdWIiOiIxNjE3MyIsImF1ZCI6ImNoYWxsZW5nZTp3aGF0LWl0LXNob3dzIiwiaWF0IjoxNzk1MjI5OTU0LCJleHAiOjE3OTUzMTYzNTR9.IRmHBt9yj8hDKvg1I_s651zAo4Tf5balsPXF-0wLzx0'
 ---
 
 <script>
@@ -12,7 +12,7 @@ signature: rvazquezglez
   import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
   import Callout from '#lib/kb/Callout.svelte';
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
-  const signature = 'rvazquezglez';
+  const signature = 'v1.eyJzdWIiOiIxNjE3MyIsImF1ZCI6ImNoYWxsZW5nZTp3aGF0LWl0LXNob3dzIiwiaWF0IjoxNzk1MjI5OTU0LCJleHAiOjE3OTUzMTYzNTR9.IRmHBt9yj8hDKvg1I_s651zAo4Tf5balsPXF-0wLzx0';
 </script>
 
 Since April, people have told us their bookings land on the wrong day. By 4 October the desk had

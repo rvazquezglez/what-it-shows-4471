@@ -1,0 +1,51 @@
+---
+layout: runbook
+title: '#4471 · dates wrong in eu locales: three problems, not one'
+owner: support desk
+status: split
+reviewed: 2026-11-20
+signature: rvazquezglez
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  const signature = 'rvazquezglez';
+</script>
+
+Since April, people have told us their bookings land on the wrong day. By 4 October the desk had
+**412 reports** merged into #4471. They are not one bug. They are **three problems**, and each now has its own ticket.
+
+<Callout>
+Not "known, one fix queued". The parser fix covers 374 of the 412 reports. The other 38 need different fixes.
+</Callout>
+
+## The three problems
+
+| Problem | Reports | Ticket |
+|---|---|---|
+| Shared parser reads dates month first, so day-first tenants get month and day flipped (`parser`) | **374** | [issue 1](https://github.com/rvazquezglez/what-it-shows-4471/issues/1) |
+| booking-v3 form hint prints `MM/DD/YYYY` to day-first tenants, who type month first (`hint`) | **33** | [issue 2](https://github.com/rvazquezglez/what-it-shows-4471/issues/2) |
+| A one-day shift (timezone-like), not a month/day swap | **5** | [issue 3](https://github.com/rvazquezglez/what-it-shows-4471/issues/3) |
+
+374 + 33 + 5 = 412. The five one-day reports (R-41202, R-41209, R-41236, R-41344, R-41620) are listed in
+`desk-notes.json`; the table below files them under `parser` because of their tenant, so it shows 379 there.
+
+## What was merged
+
+<CauseTable ticket={4471} />
+
+Intake's `intakeTag` is a guess from the browser. 15 of the 33 `hint` reports were tagged `parser`.
+
+## Since April
+
+<QueueTimeline ticket={4471} />
+
+## Lessons
+
+- Merging on subject line hid three causes under one count. Check the cause before you merge.
+- Write the page while the queue is still in your head.
+
+<RenderStamp {signature} />

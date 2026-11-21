@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>#4471 · dates wrong in eu locales: three problems, not one · support kb</title>
+<style>body{margin:0;background:#fbfaf7;color:#1d1d1b;font:16px/1.6 system-ui,sans-serif}main{max-width:760px;margin:0 auto;padding:2rem 16px 4rem}table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem}th,td{border-bottom:1px solid #e3e0d8;padding:.35rem .5rem;text-align:left}a{color:#2f6f5e}.c{background:#eef5f2;padding:.6rem 1rem;border-radius:6px}.m{color:#6b6a66;font-size:.85rem}.s{font:.85rem ui-monospace,monospace;color:#6b6a66}.s b{color:#2f6f5e}</style></head><body><main>
+<a class="m" href="#">support desk · kb</a>
+<h1>#4471 · dates wrong in eu locales: three problems, not one</h1>
+<p class="m">owner support desk · status split · reviewed 2026-11-20</p>
+<p>Since April, people have told us their bookings land on the wrong day. By 4 October the desk had <b>412 reports</b> merged into #4471. They are three problems, and each now has its own ticket.</p>
+<p class="c">Not "known, one fix queued". The parser fix covers 374 of the 412 reports. The other 38 need different fixes.</p>
+<h2>The three problems</h2>
+<table><thead><tr><th>Problem</th><th>Reports</th><th>Ticket</th></tr></thead><tbody>
+<tr><td>Shared parser reads dates month first, so day-first tenants get month and day flipped (<code>parser</code>)</td><td><b>374</b></td><td><a href="https://github.com/rvazquezglez/what-it-shows-4471/issues/1">issue 1</a></td></tr>
+<tr><td>booking-v3 form hint prints <code>MM/DD/YYYY</code> to day-first tenants, who type month first (<code>hint</code>)</td><td><b>33</b></td><td><a href="https://github.com/rvazquezglez/what-it-shows-4471/issues/2">issue 2</a></td></tr>
+<tr><td>A one-day shift (timezone-like), not a month/day swap</td><td><b>5</b></td><td><a href="https://github.com/rvazquezglez/what-it-shows-4471/issues/3">issue 3</a></td></tr></tbody></table>
+<p>374 + 33 + 5 = 412. The five one-day reports (R-41202, R-41209, R-41236, R-41344, R-41620) are listed in <code>desk-notes.json</code>; the table below files them under <code>parser</code> because of their tenant, so it shows 379 there.</p>
+<h2>What was merged</h2>
+<p><b>412</b> reports merged into #4471 · <b>2</b> causes</p>
+<table><thead><tr><th>cause</th><th>reports</th><th>tagged as</th><th>tenants</th><th>seen</th></tr></thead><tbody>
+<tr><td><code>parser</code></td><td>379</td><td>parser ×356 · hint ×23</td><td>11</td><td>2026-04-01 → 2026-10-04</td></tr>
+<tr><td><code>hint</code></td><td>33</td><td>hint ×18 · parser ×15</td><td>3</td><td>2026-04-17 → 2026-09-22</td></tr>
+</tbody></table>
+<p class="m">Intake's tag is a guess from the browser. 15 of the 33 <code>hint</code> reports were tagged <code>parser</code>. 5 reports read as a one-day move; filed under <code>parser</code> by tenant.</p>
+<h2>Lessons</h2><ul><li>Merging on subject line hid three causes under one count. Check the cause before you merge.</li><li>Write the page while the queue is still in your head.</li></ul>
+<p class="s">desk ref <b>DR-82QP-6MXQ</b></p>
+</main></body></html>

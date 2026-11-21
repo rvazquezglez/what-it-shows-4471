@@ -7,8 +7,8 @@
 <p class="c">Not "known, one fix queued". The parser fix covers 379 of the 412 reports. The other 33 need a different fix.</p>
 <h2>The three problems</h2>
 <table><thead><tr><th>Problem</th><th>Reports</th><th>Ticket</th></tr></thead><tbody>
-<tr><td>Shared parser reads dates month first, so day-first tenants get month and day flipped (<code>parser</code>)</td><td><b>379</b></td><td><a href="https://github.com/rvazquezglez/what-it-shows-4471/issues/1">issue 1</a></td></tr>
-<tr><td>booking-v3 form hint prints <code>MM/DD/YYYY</code> to day-first tenants, who type month first (<code>hint</code>)</td><td><b>33</b></td><td><a href="https://github.com/rvazquezglez/what-it-shows-4471/issues/2">issue 2</a></td></tr>
+<tr><td>Shared parser reads dates month first, so day-first tenants get month and day flipped (<code>parser</code>)</td><td><b>379</b></td><td><a href="https://github.com/rvazquezglez/what-it-shows-4471/issues/1">issue 1</a>: fixed, "parse dd/mm for eu locales"</td></tr>
+<tr><td>booking-v3 form hint prints <code>MM/DD/YYYY</code> to day-first tenants, who type month first (<code>hint</code>)</td><td><b>33</b></td><td><a href="https://github.com/rvazquezglez/what-it-shows-4471/issues/2">issue 2</a>: won't fix, booking-v3 form retired</td></tr>
 </tbody></table>
 <p>379 + 33 = 412. The count includes 5 reports the desk notes read as a one-day move (R-41202, R-41209, R-41236, R-41344, R-41620), filed under <code>parser</code> by tenant.</p>
 <h2>What was merged</h2>

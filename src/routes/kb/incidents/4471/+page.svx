@@ -1,6 +1,6 @@
 ---
 layout: runbook
-title: '#4471 · dates wrong in eu locales: three problems, not one'
+title: '#4471 · dates wrong in eu locales: two problems, not one'
 owner: support desk
 status: split
 reviewed: 2026-11-20
@@ -16,22 +16,20 @@ signature: 'v1.eyJzdWIiOiIxNjE3MyIsImF1ZCI6ImNoYWxsZW5nZTp3aGF0LWl0LXNob3dzIiwia
 </script>
 
 Since April, people have told us their bookings land on the wrong day. By 4 October the desk had
-**412 reports** merged into #4471. They are not one bug. They are **three problems**, and each now has its own ticket.
+**412 reports** merged into #4471. They are not one bug. They are **two problems**, and each now has its own ticket.
 
 <Callout>
-Not "known, one fix queued". The parser fix covers 374 of the 412 reports. The other 38 need different fixes.
+Not "known, one fix queued". The parser fix covers 379 of the 412 reports. The other 33 need a different fix.
 </Callout>
 
 ## The three problems
 
 | Problem | Reports | Ticket |
 |---|---|---|
-| Shared parser reads dates month first, so day-first tenants get month and day flipped (`parser`) | **374** | [issue 1](https://github.com/rvazquezglez/what-it-shows-4471/issues/1) |
+| Shared parser reads dates month first, so day-first tenants get month and day flipped (`parser`) | **379** | [issue 1](https://github.com/rvazquezglez/what-it-shows-4471/issues/1) |
 | booking-v3 form hint prints `MM/DD/YYYY` to day-first tenants, who type month first (`hint`) | **33** | [issue 2](https://github.com/rvazquezglez/what-it-shows-4471/issues/2) |
-| A one-day shift (timezone-like), not a month/day swap | **5** | [issue 3](https://github.com/rvazquezglez/what-it-shows-4471/issues/3) |
 
-374 + 33 + 5 = 412. The five one-day reports (R-41202, R-41209, R-41236, R-41344, R-41620) are listed in
-`desk-notes.json`; the table below files them under `parser` because of their tenant, so it shows 379 there.
+379 + 33 = 412. The count includes 5 reports the desk notes read as a one-day move (R-41202, R-41209, R-41236, R-41344, R-41620). They are filed under `parser` by tenant, as the table below shows.
 
 ## What was merged
 
